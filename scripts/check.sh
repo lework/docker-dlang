@@ -44,7 +44,7 @@ repo_tgas=$(git ls-remote --tags | awk -F'tags/' '{print $2}')
      
 # check
 check dmd ${dmd_latest}
-check ldc ${dmd_latest}
+check ldc ${ldc_latest}
 #check gdc ${gdc_latest}
 
 if [ ${update} -eq 1 ]; then
