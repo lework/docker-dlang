@@ -48,7 +48,7 @@ gdc_latest=$(curl -s http://gdcproject.org/downloads/LATEST)
 
 # get tags
 repo_tgas=$(git ls-remote --tags | awk -F'tags/' '{print $2}')
-echo "[tags] ${repo_tgas}"
+echo -e "[tags]\n${repo_tgas}"
 
 # check
 check dmd ${dmd_latest}
