@@ -2,6 +2,9 @@
 
 set -e
 
+######################################################################################################
+# function
+######################################################################################################
 
 function check() {
   local name=${1}
@@ -22,14 +25,18 @@ function check() {
   fi
 }
 
+######################################################################################################
+# main 
+######################################################################################################
+
 [ -z "${INPUT_GITHUB_TOKEN}" ] && {
     echo 'Missing input "github_token: ${{ secrets.TOKEN }}".';
     exit 1;
 };
 
 # git config
-git config --global user.name "lework"
-git config --global user.email "lework@yeah.net"
+git config --global user.name "dlangchina"
+git config --global user.email "dlangchina@dlangchina.com"
 
 # update
 update=0
@@ -47,6 +54,7 @@ check dmd ${dmd_latest}
 check ldc ${ldc_latest}
 #check gdc ${gdc_latest}
 
+# push
 if [ ${update} -eq 1 ]; then
   remote_repo="https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
   git push "${remote_repo}" master --tags
