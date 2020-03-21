@@ -14,5 +14,5 @@ jobs:
 
     - name: Run a check script
       run: bash scripts/check.sh
-      with:
-        github-token: ${{ secrets.TOKEN }}
+      env:
+        INPUT_GITHUB_TOKEN: ${{ secrets.TOKEN }}
