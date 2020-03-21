@@ -2,11 +2,6 @@
 
 set -e
 
-[ -z "${INPUT_GITHUB_TOKEN}" ] && {
-    echo 'Missing input "github_token: ${{ secrets.GITHUB_TOKEN }}".';
-    exit 1;
-};
-
 
 function check() {
   local name=${1}
@@ -27,6 +22,14 @@ function check() {
   fi
 }
 
+[ -z "${INPUT_GITHUB_TOKEN}" ] && {
+    echo 'Missing input "github_token: ${{ secrets.TOKEN }}".';
+    exit 1;
+};
+
+# git config
+git config --global user.name "lework"
+git config --global user.email "lework@yeah.net"
 
 # update
 update=0
