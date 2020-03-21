@@ -1,4 +1,4 @@
-name: CI
+name: update
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
 
 
 jobs:
-  build:
+  check:
     runs-on: ubuntu-latest
 
     steps:
